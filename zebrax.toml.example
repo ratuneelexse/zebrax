@@ -1,0 +1,14 @@
+listen = "0.0.0.0:8080"
+
+backends = [
+  "http://127.0.0.1:3001",
+  "http://127.0.0.1:3002",
+]
+
+[rate_limit]
+max_requests = 100
+window_secs  = 60
+
+[headers]
+request  = [["X-Forwarded-By", "zebrax"]]
+response = [["X-Proxy", "zebrax"]]
